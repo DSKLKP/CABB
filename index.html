@@ -6,14 +6,10 @@
     <title>My First JavaScript</title>
     <style>
         body {
+            background-color: #00008B;
+            color: orange;
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
         h1 {
@@ -21,16 +17,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 3em;
-            margin: 0;
-            animation: move 5s infinite alternate;
         }
-        
+
         #message {
-            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             font-size: 2em;
-            margin-top: 20px;
         }
 
         #myButton {
@@ -41,32 +31,34 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
+            margin: 20px auto;
+            color: orange;
         }
 
         #myButton:hover {
             background-color: #e0e0e0;
             transform: scale(1.1);
         }
-
-        @keyframes move {
-            0% {
-                transform: translateX(-100px);
-            }
-            100% {
-                transform: translateX(100px);
-            }
-        }
     </style>
 </head>
 <body>
     <h1>รัก CABB ครับ</h1>
-    <button id="myButton">ห้ามกด</button>
+    <button id="myButton">ให้กำลังใจ ❤</button>
     <p id="message"></p>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('myButton').addEventListener('click', function() {
-                document.getElementById('message').textContent = "นปโปะ หม่ำหม่ำ";
+                document.getElementById('message').textContent = "TM สู้สู้ TM หม่ำหม่ำ";
+                
+                var img = document.createElement("img");
+                img.src = "https://img5.pic.in.th/file/secure-sv1/1723209410563.jpg";
+                img.alt = "1723209410563";
+                img.border = "0";
+                img.style.marginTop = "20px";
+                img.style.width = "50%";
+
+                document.body.appendChild(img);
             });
         });
     </script>
