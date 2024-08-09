@@ -34,6 +34,7 @@
         #message {
             font-size: 2em;
             color: orange;
+            margin-top: 20px;
         }
 
         #myButton {
@@ -62,14 +63,19 @@
             margin-top: 20px;
             font-size: 1.5em;
         }
+
+        img {
+            margin-top: 20px;
+            width: 50%;
+        }
     </style>
 </head>
 <body>
     <h1>รัก CABB ครับ</h1>
     <button id="myButton">ให้กำลังใจ ❤</button>
-    <p id="message"></p>
     <p id="visitorCount"></p>
     <p id="dateTime"></p>
+    <p id="message"></p>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -88,16 +94,15 @@
             dateTimeElement.textContent = "วันที่: " + date + " เวลา: " + time;
 
             document.getElementById('myButton').addEventListener('click', function() {
-                document.getElementById('message').textContent = "TM สู้สู้ TM หม่ำหม่ำ TM เก่งมาก";
-                
                 var img = document.createElement("img");
                 img.src = "https://img5.pic.in.th/file/secure-sv1/1723209410563.jpg";
                 img.alt = "1723209410563";
                 img.border = "0";
-                img.style.marginTop = "20px";
-                img.style.width = "50%";
 
-                document.body.appendChild(img);
+                var messageElement = document.getElementById('message');
+                messageElement.textContent = "TM สู้สู้ TM หม่ำหม่ำ TM เก่งมาก";
+
+                document.body.insertBefore(img, messageElement);
             });
 
             setInterval(function() {
