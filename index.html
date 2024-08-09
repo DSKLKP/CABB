@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First JavaScript</title>
+    <title>สู้ไปด้วยกัน</title>
     <style>
         body {
             background-color: #00008B;
@@ -52,17 +52,43 @@
             background-color: #e0e0e0;
             transform: scale(1.1);
         }
+
+        #visitorCount {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        #dateTime {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
     </style>
 </head>
 <body>
     <h1>รัก CABB ครับ</h1>
     <button id="myButton">ให้กำลังใจ ❤</button>
     <p id="message"></p>
+    <p id="visitorCount"></p>
+    <p id="dateTime"></p>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            let count = localStorage.getItem('page_view_count');
+            if (count === null) {
+                count = 0;
+            }
+            count++;
+            localStorage.setItem('page_view_count', count);
+            document.getElementById('visitorCount').textContent = "จำนวนผู้เข้าชม: " + count;
+
+            const dateTimeElement = document.getElementById('dateTime');
+            const now = new Date();
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            dateTimeElement.textContent = "วันที่: " + date + " เวลา: " + time;
+
             document.getElementById('myButton').addEventListener('click', function() {
-                document.getElementById('message').textContent = "TM สู้สู้ TM หม่ำหม่ำ";
+                document.getElementById('message').textContent = "TM สู้สู้ TM หม่ำหม่ำ TM เก่งมาก";
                 
                 var img = document.createElement("img");
                 img.src = "https://img5.pic.in.th/file/secure-sv1/1723209410563.jpg";
@@ -73,6 +99,10 @@
 
                 document.body.appendChild(img);
             });
+
+            setInterval(function() {
+                location.reload();
+            }, 15000);
         });
     </script>
 </body>
