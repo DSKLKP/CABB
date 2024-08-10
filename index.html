@@ -57,7 +57,7 @@
             transform: scale(1.1);
         }
 
-        #visitorCount, #dateTime {
+        #dateTime {
             position: absolute;
             top: 10px;
             left: 10px;
@@ -67,10 +67,6 @@
             margin: 0;
         }
 
-        #dateTime {
-            top: 40px;
-        }
-
         img {
             margin-top: 20px;
             width: 50%;
@@ -78,7 +74,6 @@
     </style>
 </head>
 <body>
-    <p id="visitorCount"></p>
     <p id="dateTime"></p>
     <h1>รัก CABB ครับ</h1>
     <button id="myButton">ให้กำลังใจ ❤</button>
@@ -87,14 +82,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            let count = localStorage.getItem('page_view_count');
-            if (count === null) {
-                count = 0;
-            }
-            count++;
-            localStorage.setItem('page_view_count', count);
-            document.getElementById('visitorCount').textContent = "จำนวนผู้เข้าชม: " + count;
-
             function updateDateTime() {
                 const now = new Date();
                 const date = now.toLocaleDateString();
@@ -118,7 +105,7 @@
             });
 
             document.getElementById('scheduleButton').addEventListener('click', function() {
-                window.location.href = 'https://docs.google.com/spreadsheets/d/19PLSAwhukGXk-SYxt9kTJmybOvwP1ovGx8brmBbLKZU/edit?gid=1265160400#gid=1265160400';
+                window.open('https://docs.google.com/spreadsheets/d/19PLSAwhukGXk-SYxt9kTJmybOvwP1ovGx8brmBbLKZU/edit?gid=1265160400#gid=1265160400', '_blank');
             });
 
             setInterval(function() {
