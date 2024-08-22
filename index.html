@@ -3,115 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สู้ไปด้วยกัน</title>
-    <style>
-        body {
-            background-color: #00008B;
-            color: orange;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3em;
-            color: orange;
-            position: relative;
-            animation: moveText 5s linear infinite;
-            margin-top: 50px; /* เพิ่มระยะห่างด้านบน */
-        }
-
-        @keyframes moveText {
-            0% {
-                left: -100%;
-            }
-            50% {
-                left: 50%;
-            }
-            100% {
-                left: 100%;
-            }
-        }
-
-        #message {
-            font-size: 2em;
-            color: orange;
-            margin-top: 20px;
-        }
-
-        #myButton, #scheduleButton {
-            font-size: 1.5em;
-            padding: 15px 30px;
-            background-color: #f0f0f0;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-            margin: 20px auto;
-            color: orange;
-            display: block;
-            width: 200px; /* กำหนดความกว้างให้ปุ่ม */
-        }
-
-        #myButton:hover, #scheduleButton:hover {
-            background-color: #e0e0e0;
-            transform: scale(1.1);
-        }
-
-        #dateTime {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 1.2em;
-            color: orange;
-            text-align: left;
-            margin: 0;
-        }
-
-        img {
-            margin-top: 20px;
-            width: 50%;
-        }
-    </style>
+    <title>Excel Reader</title>
 </head>
 <body>
-    <p id="dateTime"></p>
-    <h1>รัก CABB ครับ</h1>
-    <button id="myButton">ให้กำลังใจ ❤</button>
-    <button id="scheduleButton">ตารางการทำงาน</button>
-    <p id="message"></p>
+    <h1>Upload Excel File</h1>
+    <input type="file" id="upload" />
+    <pre id="output"></pre>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function updateDateTime() {
-                const now = new Date();
-                const date = now.toLocaleDateString();
-                const time = now.toLocaleTimeString();
-                document.getElementById('dateTime').textContent = "วันที่: " + date + " เวลา: " + time;
-            }
-
-            setInterval(updateDateTime, 1000);
-            updateDateTime();
-
-            document.getElementById('myButton').addEventListener('click', function() {
-                var img = document.createElement("img");
-                img.src = "https://img5.pic.in.th/file/secure-sv1/1723209410563.jpg";
-                img.alt = "1723209410563";
-                img.border = "0";
-
-                var messageElement = document.getElementById('message');
-                messageElement.textContent = "TM สู้สู้ TM หม่ำหม่ำ TM เก่งมาก";
-
-                document.body.insertBefore(img, messageElement);
-            });
-
-            document.getElementById('scheduleButton').addEventListener('click', function() {
-                window.open('https://docs.google.com/spreadsheets/d/19PLSAwhukGXk-SYxt9kTJmybOvwP1ovGx8brmBbLKZU/edit?gid=1265160400#gid=1265160400', '_blank');
-            });
-
-            setInterval(function() {
-                location.reload();
-            }, 15000);
-        });
-    </script>
+    <!-- Include SheetJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
